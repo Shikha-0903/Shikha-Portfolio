@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
   <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
@@ -31,8 +18,44 @@
 
   <title>port</title>
   <link rel="manifest" href="manifest.json">
+
+  <style>
+    /* Splash screen style */
+    #splash-screen {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: #000; /* Match your app's background */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    #splash-screen img {
+      width: 150px; /* Adjust size as needed */
+      height: auto;
+    }
+  </style>
 </head>
+
 <body>
-  <script src="flutter_bootstrap.js" async></script>
+<!-- Splash screen content -->
+<div id="splash-screen">
+  <img src="assets/images/splash.png" alt="Loading...">
+</div>
+
+<!-- Flutter app bootstrap -->
+<script src="flutter_bootstrap.js" async></script>
+
+<!-- Remove splash screen after load -->
+<script>
+  window.addEventListener('load', function () {
+    const splash = document.getElementById('splash-screen');
+    if (splash) {
+      splash.remove();
+    }
+  });
+</script>
 </body>
 </html>
