@@ -1,0 +1,2 @@
+C:/shikha/projects/port/android/app/.cxx/Debug/344l341n/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/shikha/projects/port/android/app/.cxx/Debug/344l341n/armeabi-v7a/CMakeFiles/rebuild_cache.dir
