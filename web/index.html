@@ -11,15 +11,24 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="port">
+  <meta name="google-site-verification" content="A-3nAyY4QM9N1enUTRHjQCCXfLh8Bk62eKXF6virnEg" />
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>port</title>
+  <title>Shikha Prajapati | Portfolio</title>
+  <meta name="description" content="Portfolio of Shikha Prajapati - Flutter Developer. Projects, skills, and contact info.">
+  <meta name="keywords" content="Shikha Prajapati, Flutter Developer, Portfolio, Mobile App Developer">
   <link rel="manifest" href="manifest.json">
 
   <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
     /* Splash screen style */
     #splash-screen {
       position: fixed;
@@ -30,11 +39,16 @@
       align-items: center;
       justify-content: center;
       z-index: 9999;
+      transition: opacity 0.5s ease-out;
     }
 
     #splash-screen img {
       width: 150px; /* Adjust size as needed */
       height: auto;
+    }
+
+    .flutter-loader {
+      display: none;
     }
   </style>
 </head>
@@ -42,20 +56,112 @@
 <body>
 <!-- Splash screen content -->
 <div id="splash-screen">
-  <img src="assets/images/splash.png" alt="Loading...">
+  <img src="assets/splash.png" alt="Loading...">
 </div>
 
-<!-- Flutter app bootstrap -->
-<script src="flutter_bootstrap.js" async></script>
-
-<!-- Remove splash screen after load -->
+<!-- This script will be replaced with the proper Flutter loading script by the Flutter tool -->
 <script>
-  window.addEventListener('load', function () {
-    const splash = document.getElementById('splash-screen');
+  // Debug helper - log initialization status to console
+  console.log("Starting Flutter web initialization...");
+
+  var serviceWorkerVersion = null;
+
+  // Helper to add event listeners safely
+  function registerListener(event, callback) {
+    try {
+      window.addEventListener(event, callback);
+      console.log(`Registered listener for ${event}`);
+    } catch (e) {
+      console.error(`Error registering ${event} listener:`, e);
+    }
+  }
+
+  // Wait for the Flutter app to tell us it's ready
+  registerListener('flutter-first-frame', function() {
+    console.log("Flutter reported first frame rendered");
+    var splash = document.getElementById('splash-screen');
     if (splash) {
-      splash.remove();
+      // Fade out splash screen
+      splash.style.opacity = '0';
+      setTimeout(function() {
+        splash.remove();
+      }, 500); // Remove after transition completes
     }
   });
+
+  // Load the app
+  registerListener('load', function(ev) {
+    console.log("Window loaded, initializing Flutter engine");
+
+    // Detect older browsers
+    var browserSupportsFallback = 'serviceWorker' in navigator;
+
+    try {
+      // Check if Flutter loader object exists
+      if (window._flutter) {
+        console.log("Using Flutter web bootstrap");
+        window._flutter.loader.loadEntrypoint({
+          serviceWorker: {
+            serviceWorkerVersion: serviceWorkerVersion,
+          },
+          onEntrypointLoaded: function(engineInitializer) {
+            console.log("Entrypoint loaded, initializing engine");
+            engineInitializer.initializeEngine().then(function(appRunner) {
+              console.log("Engine initialized, running app");
+              appRunner.runApp();
+            }).catch(function(error) {
+              console.error("Error initializing Flutter engine:", error);
+              document.getElementById('splash-screen').innerHTML +=
+                '<p style="color:red">Failed to initialize Flutter app. Check console for details.</p>';
+            });
+          }
+        });
+      } else {
+        // Fallback for direct loading
+        console.log("Using fallback loading method");
+        loadMainDartJs();
+      }
+    } catch (e) {
+      console.error("Error during Flutter initialization:", e);
+      if (browserSupportsFallback) {
+        // Basic fallback loader
+        loadMainDartJs();
+      } else {
+        document.getElementById('splash-screen').innerHTML +=
+          '<p style="color:red">Failed to load app. Your browser may not be supported.</p>';
+      }
+    }
+  });
+
+  // Fallback method to load main.dart.js directly
+  function loadMainDartJs() {
+    console.log("Loading main.dart.js directly");
+    const scriptTag = document.createElement('script');
+    scriptTag.src = 'main.dart.js';
+    scriptTag.type = 'application/javascript';
+    document.body.appendChild(scriptTag);
+
+    // Set a timeout to remove splash screen if Flutter doesn't do it
+    setTimeout(function() {
+      var splash = document.getElementById('splash-screen');
+      if (splash && document.body.contains(splash)) {
+        console.warn("Timeout reached - removing splash screen");
+        splash.style.opacity = '0';
+        setTimeout(function() {
+          if (splash.parentNode) {
+            splash.parentNode.removeChild(splash);
+          }
+        }, 500);
+      }
+    }, 10000); // 10 second failsafe
+  }
+
+  // Register service worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('flutter_service_worker.js');
+    });
+  }
 </script>
 </body>
 </html>
