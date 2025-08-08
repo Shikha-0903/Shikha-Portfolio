@@ -1,0 +1,2 @@
+C:/shikha/projects/port/android/app/.cxx/RelWithDebInfo/3m21734b/x86/CMakeFiles/edit_cache.dir
+C:/shikha/projects/port/android/app/.cxx/RelWithDebInfo/3m21734b/x86/CMakeFiles/rebuild_cache.dir
