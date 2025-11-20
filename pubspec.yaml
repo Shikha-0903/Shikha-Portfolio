@@ -22,7 +22,14 @@ dependencies:
   flutter_staggered_animations: ^1.1.1
   video_player: ^2.9.5
   chewie: ^1.11.3
+  flutter_native_splash: ^2.4.6
 
+flutter_native_splash:
+  color: "#000000"
+  web: true
+  image: assets/images/logo.png
+  image_dark: assets/images/logo.png
+  color_dark: "#000000"
 
 dev_dependencies:
   flutter_test:

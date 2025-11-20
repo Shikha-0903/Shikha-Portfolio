@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:port/presentation/page/portfolio_homepage.dart';
+
+import 'src/feature/portfolio/presentation/page/portfolio_homepage.dart';
 
 void main() => runApp(const MyApp());
 
@@ -20,4 +21,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
