@@ -1,167 +1,125 @@
-<!DOCTYPE html>
-<html>
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <title>Shikha Prajapati | Flutter Developer Portfolio</title>
+  <meta name="description" content="Hi, I'm Shikha Prajapati, a Flutter developer and Computer Science student. Explore my portfolio to see my projects, DIY app, skills, and achievements.">
+  <meta name="keywords" content="Flutter, Portfolio, Shikha Prajapati, Mobile Developer, App Developer">
+  <meta name="author" content="Shikha Prajapati">
+
+  <!-- Open Graph for social sharing -->
+  <meta property="og:title" content="Shikha Prajapati | Flutter Developer Portfolio">
+  <meta property="og:description" content="Portfolio of Shikha Prajapati, a Flutter developer. View projects, skills, and contact information.">
+  <meta property="og:image" content="https://shikha-prajapati-portfolio.netlify.app/shikha.png">
+  <meta property="og:url" content="https://shikha-prajapati-portfolio.netlify.app/">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shikha Prajapati | Flutter Developer Portfolio">
+  <meta name="twitter:description" content="Portfolio of Shikha Prajapati, a Flutter developer. View projects, skills, and contact information.">
+  <meta name="twitter:image" content="https://shikha-prajapati-portfolio.netlify.app/shikha.png">
+
+  <!-- Google Site Verification (replace with your code) -->
+  <meta name="google-site-verification" content="A-3nAyY4QM9N1enUTRHjQCCXfLh8Bk62eKXF6virnEg">
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="port">
-  <meta name="google-site-verification" content="A-3nAyY4QM9N1enUTRHjQCCXfLh8Bk62eKXF6virnEg" />
+  <meta name="apple-mobile-web-app-title" content="Shikha Prajapati Portfolio">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-
+  <link rel="canonical" href="https://shikha-prajapati-portfolio.netlify.app/">
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
-
-  <title>Shikha Prajapati | Portfolio</title>
-  <meta name="description" content="Portfolio of Shikha Prajapati - Flutter Developer. Projects, skills, and contact info.">
-  <meta name="keywords" content="Shikha Prajapati, Flutter Developer, Portfolio, Mobile App Developer">
+  <link rel="icon" type="image/png" href="favicon.png">
   <link rel="manifest" href="manifest.json">
+  
+  
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+  
+  
+  <style id="splash-screen-style">
+    html {
+      height: 100%
+    }
 
-  <style>
     body {
       margin: 0;
-      overflow: hidden;
+      min-height: 100%;
+      background-color: #000000;
+          background-size: 100% 100%;
     }
 
-    /* Splash screen style */
-    #splash-screen {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background-color: #000; /* Match your app's background */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      transition: opacity 0.5s ease-out;
+    .center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
     }
 
-    #splash-screen img {
-      width: 150px; /* Adjust size as needed */
-      height: auto;
+    .contain {
+      display:block;
+      width:100%; height:100%;
+      object-fit: contain;
     }
 
-    .flutter-loader {
-      display: none;
+    .stretch {
+      display:block;
+      width:100%; height:100%;
+    }
+
+    .cover {
+      display:block;
+      width:100%; height:100%;
+      object-fit: cover;
+    }
+
+    .bottom {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      -ms-transform: translate(-50%, 0);
+      transform: translate(-50%, 0);
+    }
+
+    .bottomLeft {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .bottomRight {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #000000;
+          }
     }
   </style>
+  <script id="splash-screen-script">
+    function removeSplashFromWeb() {
+      document.getElementById("splash")?.remove();
+      document.getElementById("splash-branding")?.remove();
+      document.body.style.background = "transparent";
+    }
+  </script>
 </head>
-
 <body>
-<!-- Splash screen content -->
-<div id="splash-screen">
-  <img src="assets/splash.png" alt="Loading...">
-</div>
+  <picture id="splash">
+      <source srcset="splash/img/light-1x.png 1x, splash/img/light-2x.png 2x, splash/img/light-3x.png 3x, splash/img/light-4x.png 4x" media="(prefers-color-scheme: light)">
+      <source srcset="splash/img/dark-1x.png 1x, splash/img/dark-2x.png 2x, splash/img/dark-3x.png 3x, splash/img/dark-4x.png 4x" media="(prefers-color-scheme: dark)">
+      <img class="center" aria-hidden="true" src="splash/img/light-1x.png" alt="">
+  </picture>
+  
+  
+<script src="flutter_bootstrap.js" async=""></script>
 
-<!-- This script will be replaced with the proper Flutter loading script by the Flutter tool -->
-<script>
-  // Debug helper - log initialization status to console
-  console.log("Starting Flutter web initialization...");
 
-  var serviceWorkerVersion = null;
-
-  // Helper to add event listeners safely
-  function registerListener(event, callback) {
-    try {
-      window.addEventListener(event, callback);
-      console.log(`Registered listener for ${event}`);
-    } catch (e) {
-      console.error(`Error registering ${event} listener:`, e);
-    }
-  }
-
-  // Wait for the Flutter app to tell us it's ready
-  registerListener('flutter-first-frame', function() {
-    console.log("Flutter reported first frame rendered");
-    var splash = document.getElementById('splash-screen');
-    if (splash) {
-      // Fade out splash screen
-      splash.style.opacity = '0';
-      setTimeout(function() {
-        splash.remove();
-      }, 500); // Remove after transition completes
-    }
-  });
-
-  // Load the app
-  registerListener('load', function(ev) {
-    console.log("Window loaded, initializing Flutter engine");
-
-    // Detect older browsers
-    var browserSupportsFallback = 'serviceWorker' in navigator;
-
-    try {
-      // Check if Flutter loader object exists
-      if (window._flutter) {
-        console.log("Using Flutter web bootstrap");
-        window._flutter.loader.loadEntrypoint({
-          serviceWorker: {
-            serviceWorkerVersion: serviceWorkerVersion,
-          },
-          onEntrypointLoaded: function(engineInitializer) {
-            console.log("Entrypoint loaded, initializing engine");
-            engineInitializer.initializeEngine().then(function(appRunner) {
-              console.log("Engine initialized, running app");
-              appRunner.runApp();
-            }).catch(function(error) {
-              console.error("Error initializing Flutter engine:", error);
-              document.getElementById('splash-screen').innerHTML +=
-                '<p style="color:red">Failed to initialize Flutter app. Check console for details.</p>';
-            });
-          }
-        });
-      } else {
-        // Fallback for direct loading
-        console.log("Using fallback loading method");
-        loadMainDartJs();
-      }
-    } catch (e) {
-      console.error("Error during Flutter initialization:", e);
-      if (browserSupportsFallback) {
-        // Basic fallback loader
-        loadMainDartJs();
-      } else {
-        document.getElementById('splash-screen').innerHTML +=
-          '<p style="color:red">Failed to load app. Your browser may not be supported.</p>';
-      }
-    }
-  });
-
-  // Fallback method to load main.dart.js directly
-  function loadMainDartJs() {
-    console.log("Loading main.dart.js directly");
-    const scriptTag = document.createElement('script');
-    scriptTag.src = 'main.dart.js';
-    scriptTag.type = 'application/javascript';
-    document.body.appendChild(scriptTag);
-
-    // Set a timeout to remove splash screen if Flutter doesn't do it
-    setTimeout(function() {
-      var splash = document.getElementById('splash-screen');
-      if (splash && document.body.contains(splash)) {
-        console.warn("Timeout reached - removing splash screen");
-        splash.style.opacity = '0';
-        setTimeout(function() {
-          if (splash.parentNode) {
-            splash.parentNode.removeChild(splash);
-          }
-        }, 500);
-      }
-    }, 10000); // 10 second failsafe
-  }
-
-  // Register service worker
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function () {
-      navigator.serviceWorker.register('flutter_service_worker.js');
-    });
-  }
-</script>
-</body>
-</html>
+</body></html>
