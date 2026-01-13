@@ -10,6 +10,7 @@ import '../widget/launch_url.dart';
 import '../widget/project_item.dart';
 import '../widget/skills.dart';
 import '../widget/video_align.dart';
+import '../widget/experience_item.dart';
 
 class PortfolioHomepage extends StatefulWidget {
   const PortfolioHomepage({super.key});
@@ -176,16 +177,22 @@ class _PortfolioHomepageState extends State<PortfolioHomepage> {
       "\u{1F393} A Computer Science Graduate from Mumbai University",
       "\u{1F4BB} Passionate about Flutter application Development",
     ];
-    return AnimatedTextKit(
-      repeatForever: true,
-      animatedTexts: texts
-          .map((text) => TyperAnimatedText(text,
-              textStyle: GoogleFonts.anton(
-                fontSize: isSmallScreen ? 22 : 30,
-                color: Colors.white,
-              ),
-              textAlign: TextAlign.center))
-          .toList(),
+    // Fixed height container to prevent layout shifts
+    return SizedBox(
+      height: isSmallScreen ? 80 : 100,
+      child: Center(
+        child: AnimatedTextKit(
+          repeatForever: true,
+          animatedTexts: texts
+              .map((text) => TyperAnimatedText(text,
+                  textStyle: GoogleFonts.anton(
+                    fontSize: isSmallScreen ? 22 : 30,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center))
+              .toList(),
+        ),
+      ),
     );
   }
 
@@ -258,14 +265,58 @@ class _PortfolioHomepageState extends State<PortfolioHomepage> {
             const SizedBox(height: 60),
             Padding(
               padding:
-                  EdgeInsets.symmetric(horizontal: isSmallScreen ? 20.0 : 20.0),
+                  EdgeInsets.symmetric(horizontal: isSmallScreen ? 20.0 : 40.0),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: CustomText(
                     text: "Experience", fontSize: 26, color: Colors.white),
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 24),
+            ExperienceItem(
+              company: "AITOXR",
+              period: "11 Nov 2025 – Present",
+              role: "Flutter Developer",
+              startDate: DateTime(2025, 11, 11),
+              endDate: null, // null means current date
+              responsibilities: const [
+                "Developing InsightThread, a stock market analysis application using Flutter & BLoC.",
+                "Implemented interactive financial charts (bar graphs, stacked charts, trend analysis) using fl_chart.",
+                "Integrated SEC APIs to fetch and visualize financial filings and stock-related data.",
+                "Worked on real-time data updates using Supabase.",
+                "Followed clean architecture and modular code structure for scalability and maintainability.",
+                "Actively managing code using GitHub (issues, PRs, commits).",
+              ],
+            ),
+            ExperienceItem(
+              company: "AITOXR",
+              period: "11 Aug 2025 – 11 Nov 2025",
+              role: "Mobile Application Developer – Intern",
+              startDate: DateTime(2025, 8, 11),
+              endDate: DateTime(2025, 11, 11),
+              responsibilities: const [
+                "Worked on UrCompanion, a mental health & wellbeing application (User App + Vendor App).",
+                "Used Firebase Authentication, Firestore, and Google Login.",
+                "Gained real-world experience in production debugging, feature enhancements, and UI optimization.",
+              ],
+            ),
+            ExperienceItem(
+              company: "HSKBA India App – Amplidev Solutions",
+              period: "May 2025 – Aug 2025",
+              role: "Freelance Flutter Developer",
+              startDate: DateTime(2025, 5, 1),
+              endDate: DateTime(2025, 8, 1),
+              playStoreUrl:
+                  "https://play.google.com/store/apps/details?id=com.amplidev.solutions.aikfwsa",
+              webUrl: "https://hskba.com/",
+              responsibilities: const [
+                "Built and published a role-based Flutter app (Admin, Trainer, Student).",
+                "Implemented attendance, fees, payments, events, and exam modules.",
+                "Integrated Firebase Auth, Firestore, and Cloud Storage.",
+                "Deployed to Google Play Store (AAB, Play Console, compliance). Collaborated with a co-developer using GitHub version control.",
+                "Still managing and maintaining the app with regular updates and bug fixes.",
+              ],
+            ),
           ],
         ));
   }
@@ -282,7 +333,7 @@ class _PortfolioHomepageState extends State<PortfolioHomepage> {
             child: Align(
               alignment: Alignment.centerLeft,
               child: CustomText(
-                  text: "Projects", fontSize: 26, color: Colors.white),
+                  text: "Academic Projects", fontSize: 26, color: Colors.white),
             ),
           ),
           const SizedBox(height: 20),
