@@ -1,11 +1,11 @@
 {
-    "name": "Port",
-    "short_name": "Port",
+    "name": "Shikha Prajapati | Flutter Developer Portfolio",
+    "short_name": "Shikha Portfolio",
+    "description": "Portfolio of Shikha Prajapati, Flutter Developer. Projects, skills, apps, and contact information.",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#000000",
     "theme_color": "#000000",
-    "description": "Shikha's Portfolio.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
