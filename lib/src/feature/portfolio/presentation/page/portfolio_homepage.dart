@@ -9,7 +9,7 @@ import '../widget/build_social_icons.dart';
 import '../widget/launch_url.dart';
 import '../widget/project_item.dart';
 import '../widget/skills.dart';
-import '../widget/video_align.dart';
+import '../widget/project_image_gallery.dart';
 import '../widget/experience_item.dart';
 
 class PortfolioHomepage extends StatefulWidget {
@@ -42,6 +42,7 @@ class _PortfolioHomepageState extends State<PortfolioHomepage> {
     final isSmallScreen = screenWidth < 600;
 
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: Colors.transparent,
@@ -61,33 +62,45 @@ class _PortfolioHomepageState extends State<PortfolioHomepage> {
         ),
       ),
       drawer: _buildDrawer(isSmallScreen),
-      body: SingleChildScrollView(
-        controller: _scrollController,
-        child: Center(
-          child: Column(
-            children: [
-              const SizedBox(height: 40),
-              _buildIntroText(isSmallScreen),
-              const SizedBox(height: 60),
-              _buildAboutSection(isSmallScreen),
-              _buildExperienceSection(isSmallScreen),
-              _buildProjectsSection(isSmallScreen),
-              _buildVideosSection(isSmallScreen),
-              const SizedBox(height: 30),
-              KeyedSubtree(
-                key: _skillKey,
-                child: SkillsSection(),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              _buildResumeButton(isSmallScreen),
-              const SizedBox(height: 60),
-              buildSocialIcons(context),
-              const SizedBox(height: 10),
-              buildFooter(),
-              const SizedBox(height: 10),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: RadialGradient(
+            center: Alignment.topLeft,
+            radius: 1.5,
+            colors: [
+              Color(0xFF1A1A2E), // Deep navy
+              Colors.black,
             ],
+          ),
+        ),
+        child: SingleChildScrollView(
+          controller: _scrollController,
+          child: Center(
+            child: Column(
+              children: [
+                const SizedBox(height: 40),
+                _buildIntroText(isSmallScreen),
+                const SizedBox(height: 60),
+                _buildAboutSection(isSmallScreen),
+                _buildExperienceSection(isSmallScreen),
+                _buildProjectsSection(isSmallScreen),
+                _buildInsightsSection(isSmallScreen),
+                const SizedBox(height: 30),
+                KeyedSubtree(
+                  key: _skillKey,
+                  child: SkillsSection(),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                _buildResumeButton(isSmallScreen),
+                const SizedBox(height: 60),
+                buildSocialIcons(context),
+                const SizedBox(height: 10),
+                buildFooter(),
+                const SizedBox(height: 10),
+              ],
+            ),
           ),
         ),
       ),
@@ -129,7 +142,7 @@ class _PortfolioHomepageState extends State<PortfolioHomepage> {
               () => _scrollToSection(_projectsKey)),
           _buildDrawerItem(
               Icons.info, "Experience", () => _scrollToSection(_exp)),
-          _buildDrawerItem(Icons.video_library_outlined, 'Videos',
+          _buildDrawerItem(Icons.auto_graph_outlined, 'App Insights',
               () => _scrollToSection(_videosKey)),
           _buildDrawerItem(Icons.description_outlined, 'Download Resume',
               () => _scrollToSection(_resumeKey)),
@@ -333,7 +346,7 @@ class _PortfolioHomepageState extends State<PortfolioHomepage> {
             child: Align(
               alignment: Alignment.centerLeft,
               child: CustomText(
-                  text: "Academic Projects", fontSize: 26, color: Colors.white),
+                  text: "Projects", fontSize: 26, color: Colors.white),
             ),
           ),
           const SizedBox(height: 20),
@@ -345,6 +358,14 @@ class _PortfolioHomepageState extends State<PortfolioHomepage> {
                   EdgeInsets.symmetric(horizontal: isSmallScreen ? 15 : 20),
               child: Row(
                 children: const [
+                  ProjectItem(
+                    title: "Expense Splitter",
+                    description:
+                        "Managing and Tracking Self,Family and Trip expenses.(Currently in development)",
+                    codeUrl: "https://github.com/Shikha-0903/expense-splitter",
+                    isArt: true,
+                  ),
+                  SizedBox(width: 20),
                   ProjectItem(
                     title: "CrowdLift",
                     description:
@@ -395,7 +416,7 @@ class _PortfolioHomepageState extends State<PortfolioHomepage> {
     );
   }
 
-  Widget _buildVideosSection(bool isSmallScreen) {
+  Widget _buildInsightsSection(bool isSmallScreen) {
     return KeyedSubtree(
       key: _videosKey,
       child: Column(
@@ -407,36 +428,53 @@ class _PortfolioHomepageState extends State<PortfolioHomepage> {
             child: Align(
               alignment: Alignment.centerLeft,
               child: CustomText(
-                  text: "See insights", fontSize: 26, color: Colors.white),
+                  text: "App Insights", fontSize: 26, color: Colors.white),
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 30),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(width: 40),
-                VideoAlign(
-                  videopath:
-                      "https://firebasestorage.googleapis.com/v0/b/artgallery-1e47c.appspot.com/o/video%2Fcrowd.mp4?alt=media&token=912d9351-eb99-4c43-9013-9f4d066a2825",
-                  data: "CrowdLift App",
+                const SizedBox(width: 20),
+                ProjectImageGallery(
+                  images: const [
+                    "example_apps_images/hskba1.jpeg",
+                    "example_apps_images/hskba2.jpeg",
+                    "example_apps_images/hskba3.jpeg",
+                    "example_apps_images/hskba4.jpeg",
+                    "example_apps_images/hskba5.jpeg"
+                  ],
+                  title: "HSKBA India App",
+                ),
+                const SizedBox(width: 30),
+                ProjectImageGallery(
+                  images: const [
+                    "example_apps_images/crowd4.jpeg",
+                    "example_apps_images/crowd5.jpeg",
+                    "example_apps_images/crowd1.jpeg",
+                    "example_apps_images/crowd2.jpeg",
+                    "example_apps_images/crowd3.jpeg"
+                  ],
+                  title: "CrowdLift App",
+                ),
+                const SizedBox(width: 30),
+                ProjectImageGallery(
+                  images: const [
+                    "example_apps_images/diy3.jpeg",
+                    "example_apps_images/diy1.jpeg",
+                    "example_apps_images/diy4.jpeg",
+                    "example_apps_images/diy2.jpeg",
+                    "example_apps_images/diy5.jpeg",
+                  ],
+                  title: "DIY making App",
                 ),
                 const SizedBox(width: 20),
-                VideoAlign(
-                  videopath:
-                      "https://firebasestorage.googleapis.com/v0/b/artgallery-1e47c.appspot.com/o/video%2Fdiy.mp4?alt=media&token=ab9a3f35-23d0-41f5-8945-33bd6dd2508e",
-                  data: "DIY making App",
-                ),
-                const SizedBox(width: 40),
               ],
             ),
           ),
-          const SizedBox(height: 10),
-          if (isSmallScreen)
-            const Text("Scroll to see more->",
-                style: TextStyle(color: Colors.white70)),
         ],
       ),
     );
