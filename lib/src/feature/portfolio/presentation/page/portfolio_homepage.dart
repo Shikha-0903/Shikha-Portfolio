@@ -441,33 +441,33 @@ class _PortfolioHomepageState extends State<PortfolioHomepage> {
                 const SizedBox(width: 20),
                 ProjectImageGallery(
                   images: const [
-                    "example_apps_images/hskba1.jpeg",
-                    "example_apps_images/hskba2.jpeg",
-                    "example_apps_images/hskba3.jpeg",
-                    "example_apps_images/hskba4.jpeg",
-                    "example_apps_images/hskba5.jpeg"
+                    "assets/example_apps_images/hskba1.jpeg",
+                    "assets/example_apps_images/hskba2.jpeg",
+                    "assets/example_apps_images/hskba3.jpeg",
+                    "assets/example_apps_images/hskba4.jpeg",
+                    "assets/example_apps_images/hskba5.jpeg"
                   ],
                   title: "HSKBA India App",
                 ),
                 const SizedBox(width: 30),
                 ProjectImageGallery(
                   images: const [
-                    "example_apps_images/crowd4.jpeg",
-                    "example_apps_images/crowd5.jpeg",
-                    "example_apps_images/crowd1.jpeg",
-                    "example_apps_images/crowd2.jpeg",
-                    "example_apps_images/crowd3.jpeg"
+                    "assets/example_apps_images/crowd4.jpeg",
+                    "assets/example_apps_images/crowd5.jpeg",
+                    "assets/example_apps_images/crowd1.jpeg",
+                    "assets/example_apps_images/crowd2.jpeg",
+                    "assets/example_apps_images/crowd3.jpeg"
                   ],
                   title: "CrowdLift App",
                 ),
                 const SizedBox(width: 30),
                 ProjectImageGallery(
                   images: const [
-                    "example_apps_images/diy3.jpeg",
-                    "example_apps_images/diy1.jpeg",
-                    "example_apps_images/diy4.jpeg",
-                    "example_apps_images/diy2.jpeg",
-                    "example_apps_images/diy5.jpeg",
+                    "assets/example_apps_images/diy3.jpeg",
+                    "assets/example_apps_images/diy1.jpeg",
+                    "assets/example_apps_images/diy4.jpeg",
+                    "assets/example_apps_images/diy2.jpeg",
+                    "assets/example_apps_images/diy5.jpeg",
                   ],
                   title: "DIY making App",
                 ),
