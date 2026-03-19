@@ -16,13 +16,13 @@ dependencies:
   cupertino_icons: ^1.0.8
   url_launcher: ^6.3.1
   google_fonts: ^6.2.1
-  animated_text_kit: ^4.2.3
+  animated_text_kit: ^4.3.0
   lottie: ^3.3.1
   icons_plus: ^5.0.0
   flutter_staggered_animations: ^1.1.1
-  video_player: ^2.9.5
-  chewie: ^1.11.3
   flutter_native_splash: ^2.4.6
+
+
 
 flutter_native_splash:
   color: "#000000"
@@ -58,3 +58,5 @@ flutter:
   assets:
     - assets/animation/port.json
     - assets/images/splash.png
+    - assets/example_apps_images/
+
