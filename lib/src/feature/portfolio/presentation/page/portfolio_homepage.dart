@@ -186,9 +186,11 @@ class _PortfolioHomepageState extends State<PortfolioHomepage> {
 
   Widget _buildIntroText(bool isSmallScreen) {
     final texts = [
-      "\u{1F44B} Hello! I am Shikha Prajapati",
-      "\u{1F393} A Computer Science Graduate from Mumbai University",
-      "\u{1F4BB} Passionate about Flutter application Development",
+      "👋 Hi, I'm Shikha Prajapati",
+      "🚀 Senior Full Stack Engineer building scalable products",
+      "⚡ Managing InsightThread & AskOmm end-to-end",
+      "☁️ AWS • Airflow • Flutter • APIs • Cloud Systems",
+      "📈 Building real-time analytics & financial platforms",
     ];
     // Fixed height container to prevent layout shifts
     return SizedBox(
@@ -233,7 +235,7 @@ class _PortfolioHomepageState extends State<PortfolioHomepage> {
                     const SizedBox(height: 10),
                     CustomText(
                       text:
-                          "I'm a creative and detail-oriented Flutter Developer and Freelancer focused on delivering high-quality mobile apps using Flutter. Beyond coding, I love exploring Data Science and AI trends.",
+                          "I'm a Senior Full Stack Engineer focused on building scalable products, backend systems, and high-performance mobile applications. Currently managing core products including InsightThread and AskOmm, while working across Flutter, AWS, Airflow, Supabase, and cloud infrastructure. I enjoy building real-time analytics systems, financial platforms, and clean scalable architectures that solve real-world problems.",
                       fontSize: 14,
                       color: Colors.white70,
                     ),
@@ -256,7 +258,7 @@ class _PortfolioHomepageState extends State<PortfolioHomepage> {
                           const SizedBox(height: 10),
                           CustomText(
                               text:
-                                  "I'm a creative and detail-oriented Flutter Developer and Freelancer focused on delivering high-quality mobile apps using Flutter. Beyond coding, I love exploring Data Science and AI trends.",
+                              "I'm a Senior Full Stack Engineer focused on building scalable products, backend systems, and high-performance mobile applications. Currently managing core products including InsightThread and AskOmm, while working across Flutter, AWS, Airflow, Supabase, and cloud infrastructure. I enjoy building real-time analytics systems, financial platforms, and clean scalable architectures that solve real-world problems.",
                               fontSize: 14,
                               color: Colors.white70,
                               textAlign: TextAlign.start)
@@ -288,10 +290,27 @@ class _PortfolioHomepageState extends State<PortfolioHomepage> {
             const SizedBox(height: 24),
             ExperienceItem(
               company: "AITOXR",
-              period: "11 Nov 2025 – Present",
+              period: "13 April 2026 – Present",
+              role: "Senior Full Stack Engineer",
+              startDate: DateTime(2026, 4, 13),
+              endDate: null,
+              responsibilities: const [
+                "Building and managing core products including InsightThread and AskOmm.",
+                "Developing scalable backend architecture and APIs using AWS, Supabase, Airflow, and cloud infrastructure.",
+                "Creating OpenAPI-powered backend systems and automated workflow pipelines.",
+                "Building real-time stock market analytics and financial visualization systems.",
+                "Developing interactive charts, dashboards, and analytics features using Flutter & fl_chart.",
+                "Integrating SEC APIs and external financial data sources for filings and market insights.",
+                "Managing deployments, production environments, and infrastructure using Vercel and AWS services.",
+                "Following scalable clean architecture, modular development practices, and GitHub-based workflows.",
+              ],
+            ),
+            ExperienceItem(
+              company: "AITOXR",
+              period: "11 Nov 2025 – 13 April 2026",
               role: "Flutter Developer",
               startDate: DateTime(2025, 11, 11),
-              endDate: null, // null means current date
+              endDate: DateTime(2026, 4, 13),
               responsibilities: const [
                 "Developing InsightThread, a stock market analysis application using Flutter & BLoC.",
                 "Implemented interactive financial charts (bar graphs, stacked charts, trend analysis) using fl_chart.",
